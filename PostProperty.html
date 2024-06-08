@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Rental Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        text-align: center;
+        padding: 20px;
+        background-color: rgba(219, 215, 215, 0.863);
+    }
+    
+    h1 {
+        margin: 10px 0;
+        color:rgb(20, 12, 4);
+        
+    }
+    
+    main {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .property-form {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 70px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin-bottom: 20px;
+    }
+    
+    .property-form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .property-form input, .property-form select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .property-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: #ff7e5f;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .property-form button:hover {
+        background-color: #feb47b;
+    }
+    
+    .form-message {
+        margin-top: 10px;
+        padding: 10px;
+        display: none;
+        color: green;
+        border: 1px solid green;
+        border-radius: 5px;
+    }
+    
+    .reviews {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 50px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        height: 150px;
+    }
+    
+    .review-slider {
+        overflow: hidden;
+        height: 100px;
+        position: relative;
+    }
+    
+    .review {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+    
+    .review.visible {
+        opacity: 1;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Post Your Property for Rent</h1>
+    </header>
+    <main>
+        <form class="property-form" id="property-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" required>
+
+            <label for="property-type">Property Type:</label>
+            <select id="property-type" name="property-type">
+                <option value="residential">Residential</option>
+                <option value="commercial">Commercial</option>
+                <option value="land-plot">Land/Plot</option>
+            </select>
+
+            <label>
+                <input type="checkbox" name="whatsapp-updates">
+                Get updates on WhatsApp
+            </label>
+
+            <button type="submit">Submit</button>
+            <div id="form-message" class="form-message"></div>
+        </form>
+        <div class="reviews">
+            <h2>Customer Reviews</h2>
+            <div class="review-slider">
+                <div class="review"> "Excellent platform for finding rental properties. The interface is user-friendly and the customer support is outstanding!"</div>
+                <div class="review">"Renting my house through this website was a breeze. Great exposure and quick responses from potential tenants."
+                </div>
+                <div class="review">"Very efficient service. I was able to find a commercial space for my business within a week!"</div>
+                <div class="review">"The best site for property rentals! I love how simple and straightforward everything is."</div>
+                <div class="review">"I got updates on new listings via WhatsApp which made it super convenient to stay informed. Five stars!"</div>
+                <div class="review">"Professional and reliable. The platform made renting out my property an easy task."</div>
+                <div class="review">"Fast, easy, and efficient. I found a great tenant for my property in no time!"</div>
+            </div>
+        </div>
+    </main>
+    <script src="postProperty.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Submission Portal</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right, #ffafbd, #ffc3a0);
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        text-align: center;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    
+    h1 {
+        margin: 10px 0;
+    }
+    
+    main {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .form-container {
+        flex: 1;
+        margin-right: 20px;
+    }
+    
+    .submit-form {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .submit-form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .submit-form input, .submit-form select {
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .checkbox-group {
+        margin-bottom: 10px;
+    }
+    
+    .checkbox-label {
+        display: flex;
+        align-items: center;
+        margin-bottom: 4px;
+    }
+    
+    .checkbox-label input {
+        margin-right: 10px;
+    }
+    
+    .submit-form button {
+        width: 100%;
+        padding: 10px;
+        background-color: #ffafbd;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    
+    .submit-form button:hover {
+        background-color: #ffc3a0;
+    }
+    
+    .form-message {
+        margin-top: 10px;
+        padding: 10px;
+        display: none;
+        color: green;
+        border: 1px solid green;
+        border-radius: 5px;
+    }
+    
+    .slideshow-container {
+        flex: 1;
+        max-width: 500px;
+        max-height: 400px;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .slideshow {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .slide {
+        display: none;
+        width: 100%;
+        height: auto;
+    }
+    
+    .slide.active {
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Submit Your Property for Rent</h1>
+    </header>
+    <main>
+        <div class="form-container">
+            <form class="submit-form" id="submit-form">
+                <label for="location1">Location/Landmark 1:</label>
+                <input type="text" id="location1" name="location1" required>
+
+                <label for="location2">Location/Landmark 2:</label>
+                <input type="text" id="location2" name="location2">
+
+                <label>Type:</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-label"><input type="radio" name="type" value="full-house"> Full House</label>
+                    <label class="checkbox-label"><input type="radio" name="type" value="pg-hostel"> PG/Hostel</label>
+                    <label class="checkbox-label"><input type="radio" name="type" value="flatmates"> Flatmates</label>
+                </div>
+
+                <label for="bhk-type">BHK Type:</label>
+                <select id="bhk-type" name="bhk-type">
+                    <option value="1bhk">1 BHK</option>
+                    <option value="2bhk">2 BHK</option>
+                    <option value="3bhk">3 BHK</option>
+                    <option value="4bhk">4 BHK</option>
+                </select>
+
+                <button type="submit" id="submit-button">Submit</button>
+                <div id="form-message" class="form-message"></div>
+            </form>
+        </div>
+        <div class="slideshow-container">
+            <div class="slideshow">
+                <img src="Property1.jpg" alt="Property Image 1" class="slide">
+                <img src="Property2.jpeg" alt="Property Image 2" class="slide">
+                <img src="property3.jpeg" alt="Property Image 3" class="slide">
+                <img src="Property4.jpg" alt="Property Image 4" class="slide">
+            </div>
+            
+        </div>
+    </main>
+    <script src="buyProperty.js"></script>
+</body>
+</html>
