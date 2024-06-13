@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Marketplace</title>
+    <link rel="stylesheet" href="css\product.css">
+</head>
+<body>
+    <header>
+        <h1>Real Estate Marketplace</h1>
+    </header>
+    <main>
+        <div class="filters">
+            <button onclick="sortProducts('price')">Sort by Price</button>
+            <button onclick="sortProducts('date')">Sort by Date</button>
+            <!-- Add more filters as needed -->
+        </div>
+        <div class="product-list" id="product-list">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 DirectDigs</p>
+    </footer>
+
+    <script src="product.js"></script>
+</body>
+</html>

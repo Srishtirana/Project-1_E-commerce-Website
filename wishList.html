@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>body {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    header {
+        background: linear-gradient(90deg, #ff8c00, #e52e71);
+        padding: 20px;
+        text-align: center;
+    }
+    
+    header nav {
+        margin-top: 10px;
+    }
+    
+    header nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: #ff8c00;
+    }
+    
+    header nav a:hover {
+        background-color: #e52e71;
+    }
+    
+    h1 {
+        margin: 0;
+        font-size: 2.5em;
+    }
+    
+    main {
+        padding: 20px;
+    }
+    
+    .property {
+        background-color: #333;
+        border-radius: 10px;
+        margin: 20px 0;
+        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .property img {
+        width: 40%;
+        height: auto;
+    }
+    
+    .details {
+        padding: 20px;
+    }
+    
+    .details h2 {
+        margin-top: 0;
+        color: #ff8c00;
+    }
+    
+    .details p {
+        margin: 10px 0;
+    }
+    
+    button, .buy-rent-button {
+        background-color: #ff8c00;
+        border: none;
+        padding: 10px 20px;
+        color: #fff;
+        cursor: pointer;
+        margin-right: 10px;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+    
+    button:hover, .buy-rent-button:hover {
+        background-color: #e52e71;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Wishlist</h1>
+        <nav>
+            <a href="index.html">Back to Listings</a>
+        </nav>
+    </header>
+    <main id="wishlist-container">
+        <!-- Wishlist items will be dynamically inserted here -->
+    </main>
+    <script>
+        function loadWishlist() {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            let container = document.getElementById('wishlist-container');
+            if (wishlist.length === 0) {
+                container.innerHTML = '<p>Your wishlist is empty.</p>';
+            } else {
+                wishlist.forEach(item => {
+                    let propertySection = document.createElement('section');
+                    propertySection.className = 'property';
+                    propertySection.innerHTML = `
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="details">
+                            <h2>${item.name}</h2>
+                            <p><strong>Address:</strong> ${item.address}</p>
+                            <p><strong>Price:</strong> ${item.price}</p>
+                            <p><strong>Contact:</strong> ${item.contact}</p>
+                        </div>
+                    `;
+                    container.appendChild(propertySection);
+                });
+            }
+        }
+
+        window.onload = loadWishlist;
+    </script>
+</body>
+</html>

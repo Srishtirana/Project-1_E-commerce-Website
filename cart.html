@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="cart.css">
+    <style>body {
+        background-color: #000;
+        color: #fff;
+        font-family: Arial, sans-serif;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background: linear-gradient(to right, #FF512F, #e060a8);
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+    
+    h1.gradient-text {
+        font-size: 50px;
+        background: linear-gradient(to right, #000000, #000000);
+        -webkit-background-clip: text;
+        color: transparent;
+        text-align: center;
+        
+    }
+    
+    .cart-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #333;
+        border-radius: 10px;
+    }
+    
+    .cart-item img {
+        width: 100px;
+        border-radius: 10px;
+        margin-right: 20px;
+    }
+    
+    .cart-item h3 {
+        margin: 0;
+    }
+    
+    .cart-item p {
+        margin: 5px 0;
+    }
+    
+    button {
+        padding: 10px 20px;
+        background-color: #FF512F;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #DD2476;
+    }
+   
+    #buy-now{background-color:rgba(2, 0, 0, 0.852);}
+    #buy-now:hover{background-color: #000;}
+    </style>
+    
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Shopping Cart</title>
+        <link rel="stylesheet" href="cart.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="gradient-text">Shopping Cart</h1>
+            <div id="cart-items"></div>
+            <button id="buy-now">Buy Now</button> <!-- Added Buy Now button -->
+        </div>
+        
+    </div>
+        <script src="cart.js"></script>
+    </body>
+    </html>
+    
+    <script >document.addEventListener('DOMContentLoaded', function() {
+        const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        const cartItemsContainer = document.getElementById('cart-items');
+    
+        displayCartItems();
+    
+        function displayCartItems() {
+            cartItemsContainer.innerHTML = '';
+            cartItems.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <div>
+                        <h3>${item.name}</h3>
+                        <p>Price: $${item.price.toLocaleString()}</p>
+                        <button onclick="removeFromCart(${item.id})">Remove</button>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(itemDiv);
+            });
+        }
+    
+        window.removeFromCart = function(productId) {
+            const index = cartItems.findIndex(item => item.id === productId);
+            if (index !== -1) {
+                cartItems.splice(index, 1);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                displayCartItems();
+            }
+        };
+        document.getElementById('buy-now').addEventListener('click', function() {
+            window.location.href = 'checkout.html';
+        });
+    });
+    
+
+
+    </script>
+</body>
+</html>
