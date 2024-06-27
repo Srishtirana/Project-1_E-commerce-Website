@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Chatbot</title>
+    <style>body {
+       background: linear-gradient(to right, #905648a0, #e17e32a5);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        
+    }
+    
+    .chatbox {
+        background: rgba(255, 255, 255, 0.5); /* 0.8 is the opacity */
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 50px;
+            width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .chatbox-header {
+        background:linear-gradient(30deg,rgba(255, 166, 0, 0.664),rgba(255, 0, 0, 0.153));
+        color: #000000;
+        padding: 10px;
+        text-align: center;
+        font-size:20px;
+    }
+    
+    .chatbox-body {
+        background-color: #f1f1f1;
+        flex: 1;
+        padding: 10px;
+        overflow-y: auto;
+    }
+    
+    .chatbox-footer {
+        background-color: #333;
+        display: flex;
+        padding: 10px;
+    }
+    
+    .chatbox-footer input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        border-radius: 5px 0 0 5px;
+    }
+    
+    .chatbox-footer button {
+        padding: 10px;
+        border: none;
+        background-color: #98673c;
+        color: #fff;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+    }
+    
+    .message {
+        background-color: #555;
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .bot-message {
+        background-color: #e67e22;
+    }
+    
+    .user-message {
+        background-color: #db3434c8;
+        align-self: flex-end;
+    }
+    </style>
+</head>
+<body>
+    <div class="chatbox">
+        <div class="chatbox-header">
+            <h3>Real Estate Chatbot</h3>
+        </div>
+        <div class="chatbox-body" id="chatbox-body">
+            <div class="message bot-message">Hello! How can I assist you today?</div>
+        </div>
+        <div class="chatbox-footer">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+    <script>const predefinedResponses = {
+        "hello": "Hello! How can I help you with your real estate needs?",
+        "hi": "Hello! How can I help you with your real estate needs?",
+        "good morning":"how;s your day going?",
+        "I am srishti":"hi srishti you got areally preety name .How can I help you today?",
+        "property": "We have a wide range of properties available for purchase. Are you looking for residential or commercial properties?",
+        " I want to sell a property": "We can help you sell your property at the best price. Please provide more details about your property.",
+        "rent": "Looking to rent? We have various properties available for rent. What type of property are you interested in?",
+        "contact": "You can contact us at contact@realestate.com or call us at (123) 456-7890.",
+        "default": "I'm sorry, I didn't understand that. Can you please rephrase your question?"
+    };
+    
+    function sendMessage() {
+        const userInput = document.getElementById("user-input").value.trim();
+        if (userInput === "") return;
+    
+        const chatboxBody = document.getElementById("chatbox-body");
+    
+        // Add user message to chatbox
+        const userMessage = document.createElement("div");
+        userMessage.className = "message user-message";
+        userMessage.textContent = userInput;
+        chatboxBody.appendChild(userMessage);
+    
+        // Add bot response to chatbox
+        const botMessage = document.createElement("div");
+        botMessage.className = "message bot-message";
+        botMessage.textContent = predefinedResponses[userInput.toLowerCase()] || predefinedResponses["default"];
+        chatboxBody.appendChild(botMessage);
+    
+        // Clear input field
+        document.getElementById("user-input").value = "";
+    
+        // Scroll to the bottom
+        chatboxBody.scrollTop = chatboxBody.scrollHeight;
+    }
+    </script>
+</body>
+</html>
