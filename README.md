@@ -35,7 +35,7 @@ Make sure you have the following software installed:
 2. Navigate to the "My Listings" section.
 3. Add, edit, or delete your property listings as needed.
 
-#### buying and selllin
+#### buying and sellling
 1. Add your preferred property into cart.
 2. naviaget to the check=in page to buy the property
 3. Fill up froms or post the property for the selling purpose. 
