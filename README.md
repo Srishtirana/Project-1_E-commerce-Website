@@ -19,3 +19,4 @@ Make sure you have the following software installed:
 
 ### Clone the Repository
 ```bash
+https://github.com/Srishtirana/Project-1_E-commerce-Website.git
